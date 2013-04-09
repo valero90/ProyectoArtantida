@@ -1,6 +1,6 @@
 <?php
-	include 'basura.php';
-	include 'Manager.php';
+	include ('basura.php');
+	include ('Manager.php');
 	
 	$libroPrueba = new Libro();
 	$libroPrueba->nivel = 1;

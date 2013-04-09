@@ -5,23 +5,55 @@
 		var	$idioma;
 		var $nombre;
 		
-		public function Actividad($nivel, $idioma) {
+		public function getNivel()
+		{
+			return $this->nivel;
+		}
+		public function getIdioma()
+		{
+			return $this->idioma;
+		}
+		public function getNombre()
+		{
+			return $this->nombre;
+		}
+		
+		public function setNivel($nivel)
+		{
+			$this->nivel=$nivel;
+		}
+		public function setIdioma($idioma)
+		{
+			$this->idioma=$idioma;
+		}
+		public function setNombre($nombre)
+		{
+			$this->nombre=$nombre;
+		}
+		/*public function Actividad($nivel, $idioma) {
 			$this->nivel = $nivel;
 			$this->idioma = $idioma;	
-		}
+		}*/
 	}
 	
 	Class Libro extends Actividad {
+		var $nivel;
+		var	$idioma;
+		var $nombre;
 		var $titulo;
 		var $contenido;
 		var $autor;	
 		
 		public function getValues() {
-			return "$nombre, $nivel, $idioma, $titulo, $contenido, $autor";	
+			/*return getNombre().",".getNivel().",".getIdioma().",".$titulo.",".$contenido.",".$autor;	*/
+			/*return "$nivel, $idioma ,$nombre ,$titulo ,$contenido, $autor";	*/
+			return "'".$this->nombre."',".$this->nivel.",'".$this->idioma."','".$this->titulo."','".$this->contenido."','".$this->autor."'";
 		}
 		
 		public function getModValues() {
-			return "nombre = $nombre, nivel = '$nivel', idioma = '$idioma', titulo = '$titulo', contenido = '$contenido', autor = '$autor'";	
+			/*return "nombre = '".getNombre()."',nivel = ".getNivel().", idioma = '".getIdioma()."', titulo = '$titulo', contenido = '$contenido', autor = '$autor'";	*/
+			/*return "nivel= $nivel, idioma=$idioma ,nombre=$nombre ,titulo=$titulo ,contenido=$contenido, autor=$autor";	*/
+			return "nombre='".$this->nombre."',nivel= ".$this->nivel.",idioma='".$this->idioma."',titulo='".$this->titulo.",'contenido='".$this->contenido."',autor='".$this->autor."'";
 		}
 	}
 	
@@ -51,10 +83,10 @@
 		var $ejercicios = array();
 	}
 	
-	$prueba = new Gramatica('bajo', 'Inglés');
+	/*$prueba = new Gramatica('bajo', 'Inglés');
 	$prueba->enunciado = 'Enunciado de prueba';
 	$prueba->solucion = 'Solucion de prueba';
 	$prueba->explicacion = 'Explicacion de prueba';
 	
-	$prueba->darExplicacion();
+	$prueba->darExplicacion();*/
 ?>
