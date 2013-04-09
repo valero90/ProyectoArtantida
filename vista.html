@@ -1,6 +1,14 @@
 <html>
 	<head> <title> Actividades </title> </head>
 	<body>
+        <legend>Mostrar todos los libro</legend>
+        <form action="index.php?mostrarTodos=libro" method="POST">
+        	<input type="submit" value="Mostrar Todos">
+        </form>
+        <br>
+        <hr>
+        <legend>Guardar Libro</legend>
+        <br>        
 		<form action="index.php?form=libro" method="POST">
 			<p> Nombre: <input type="text" name="nombre"/> </p>
 			<p> Nivel: <input type="text" name="nivel"/> </p>
@@ -13,7 +21,24 @@
 			<p> Titulo: <input type="text" name="titulo"/> </p>
 			<p> Autor: <input type="text" name="autor"/> </p>
 			<p> Contenido: </p>
-			<textarea size="100" name="contenido"> </textarea> 
+			<textarea size="100" name="contenido"> </textarea> <br>
+            <input type="submit" value="Guardar">
 		</form>
+        <br>
+        <hr>
+        <legend>Mostrar libro</legend>
+        <br>
+        <form action="index.php?mostrar=libro" method="POST">
+        	Nombre: <input type="text" name="nombre"><br>
+        	<input type="submit" value="Mostrar">
+        </form>
+        <br>
+        <hr>
+        <legend>Eliminar libro</legend>
+        <br>
+        <form action="index.php?eliminar=libro" method="POST">
+        	Nombre: <input type="text" name="nombre"><br>
+        	<input type="submit" value="Eliminar">
+        </form>
 	</body>
 </html>

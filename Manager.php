@@ -42,10 +42,62 @@
 			$cone->desconectar();
 		}
 		
+		static function eliminarUno($nombre, $table) {
+			$cone = new Conexion();
+			$cone->conectar();
+			
+			$eliminacion = "DELETE FROM $table WHERE nombre = '".$nombre."';";
+			if (!$cone->conexion->query($eliminacion)) {
+				echo "<br>Error en la eliminación.<br>";	
+				echo $cone->conexion->error;	
+			}else 
+				echo "<br>Eliminacion realizada";
+			
+			$cone->desconectar();
+		}
+		
 		static function mostrar($objeto, $table) {
 			$cone = new Conexion();
 			$cone->conectar();
 			$consulta = "SELECT * FROM $table WHERE nombre = '".$objeto->nombre. "';";
+			if (!$query = $cone->conexion->query($consulta)) {
+				echo "<br>Error en la consulta.<br>";	
+				echo $cone->conexion->error;	
+			}else {
+				echo '<br><br><br>';
+				while ($linea = $query->fetch_row()) {
+					foreach($linea as $columna) {
+						echo "$columna - ";	
+					}
+					echo "<br><br>";
+				}
+			}
+			$cone->desconectar();
+		}
+		
+		static function mostrarUno($nombre, $table) {
+			$cone = new Conexion();
+			$cone->conectar();
+			$consulta = "SELECT * FROM $table WHERE nombre = '".$nombre. "';";
+			if (!$query = $cone->conexion->query($consulta)) {
+				echo "<br>Error en la consulta.<br>";	
+				echo $cone->conexion->error;	
+			}else {
+				echo '<br><br><br>';
+				while ($linea = $query->fetch_row()) {
+					foreach($linea as $columna) {
+						echo "$columna - ";	
+					}
+					echo "<br><br>";
+				}
+			}
+			$cone->desconectar();
+		}
+		
+		static function mostrarTodos($table) {
+			$cone = new Conexion();
+			$cone->conectar();
+			$consulta = "SELECT * FROM $table;";
 			if (!$query = $cone->conexion->query($consulta)) {
 				echo "<br>Error en la consulta.<br>";	
 				echo $cone->conexion->error;	
