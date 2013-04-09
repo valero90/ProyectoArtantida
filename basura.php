@@ -47,13 +47,25 @@
 		public function getValues() {
 			/*return getNombre().",".getNivel().",".getIdioma().",".$titulo.",".$contenido.",".$autor;	*/
 			/*return "$nivel, $idioma ,$nombre ,$titulo ,$contenido, $autor";	*/
-			return "'".$this->nombre."',".$this->nivel.",'".$this->idioma."','".$this->titulo."','".$this->contenido."','".$this->autor."'";
+			$values = "'','".$this->nombre."',";
+			$values.= $this->nivel.",'";
+			$values.= $this->idioma."','";
+			$values.= $this->titulo."','";
+			$values.= $this->contenido."','";
+			$values.= $this->autor."'";
+			return $values;
 		}
 		
 		public function getModValues() {
 			/*return "nombre = '".getNombre()."',nivel = ".getNivel().", idioma = '".getIdioma()."', titulo = '$titulo', contenido = '$contenido', autor = '$autor'";	*/
 			/*return "nivel= $nivel, idioma=$idioma ,nombre=$nombre ,titulo=$titulo ,contenido=$contenido, autor=$autor";	*/
-			return "nombre='".$this->nombre."',nivel= ".$this->nivel.",idioma='".$this->idioma."',titulo='".$this->titulo.",'contenido='".$this->contenido."',autor='".$this->autor."'";
+			$values = "nombre='".$this->nombre."',nivel=";
+			$values.= $this->nivel.",idioma='";
+			$values.= $this->idioma."',titulo='";
+			$values.= $this->titulo."',contenido='";
+			$values.= $this->contenido."',autor='";
+			$values.= $this->autor."'";
+			return $values;
 		}
 	}
 	
