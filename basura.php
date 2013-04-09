@@ -3,6 +3,7 @@
 	Class Actividad {
 		var $nivel;
 		var	$idioma;
+		var $nombre;
 		
 		public function Actividad($nivel, $idioma) {
 			$this->nivel = $nivel;
@@ -14,6 +15,14 @@
 		var $titulo;
 		var $contenido;
 		var $autor;	
+		
+		public function getValues() {
+			return "$nombre, $nivel, $idioma, $titulo, $contenido, $autor";	
+		}
+		
+		public function getModValues() {
+			return "nombre = $nombre, nivel = '$nivel', idioma = '$idioma', titulo = '$titulo', contenido = '$contenido', autor = '$autor'";	
+		}
 	}
 	
 	Class Ejercicio extends Actividad {	

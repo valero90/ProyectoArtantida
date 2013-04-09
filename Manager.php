@@ -19,7 +19,7 @@
 			$conexion->close();
 		}
 
-		Static function guardar($objeto, $table) {
+		static function guardar($objeto, $table) {
 			conectar();
 
 			$insercion = "INSERT INTO ". $table. " values(". $objeto->getValues().");";
@@ -30,7 +30,7 @@
 			desconectar();
 		}
 		
-		Static function modificar($objeto, $table) {
+		static function modificar($objeto, $table) {
 			conectar();
 
 			$modificacion = "UPDATE ". $table. " SET ". $objeto->getModValues()." WHERE id = '".$objeto->id."';";
@@ -40,7 +40,7 @@
 			desconectar();
 		}
 		
-		Static function eliminar($objeto, $table) {
+		static function eliminar($objeto, $table) {
 			conectar();
 			
 			$eliminacion = "DELETE FROM $table WHERE id = ".$objeto->id.";";
@@ -51,9 +51,9 @@
 			desconectar();
 		}
 		
-		Static function mostrar($id, $table) {
+		static function mostrar($objeto, $table) {
 			conectar();
-			$consulta = "SELECT * FROM $table WHERE id = $id;";
+			$consulta = "SELECT * FROM $table WHERE nombre = ".$objeto->nombre. ";";
 			if (!$query = $conexion->query($eliminacion)) {
 				echo "Error en la eliminación.";	
 			} else {
