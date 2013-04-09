@@ -1,60 +1,47 @@
 <?php
-	Class DDBB_Manager {
-		var $nombre_DB;
-		var $conexion;
-		
-		private function conectar() {
-			$host = "localhost";
-			$usuario = "catalogo";
-			$pass = "rhXxEjqDVFGSzJ5F";
-			$this->$nombre_DB = "catalogo";
-		
-			$this->conexion = new mysqli($host, $usuario, $pass, $baseDatos);
-			if ($this->conexion->connect_errno) {
-				echo "Fallo al contenctar a MySQL: (" . $this->conexion->connect_errno . ") " . $this->conexion->connect_error;
-			}
-		}
-		
-		private function desconectar() {
-			$conexion->close();
-		}
+	include('accesobd.php');
+	Class DDBB_Manager {	
 
 		static function guardar($objeto, $table) {
-			conectar();
+			$cone = new Conexion();
+			$cone->conectar();
 
 			$insercion = "INSERT INTO ". $table. " values(". $objeto->getValues().");";
-			if (!$this->conexion->query($insercion)) {
+			if (!$cone->conexion->query($insercion)) {
 				echo "Error en la inserción.";	
 			}
 
-			desconectar();
+			$cone->desconectar();
 		}
 		
 		static function modificar($objeto, $table) {
-			conectar();
+			$cone = new Conexion();
+			$cone->conectar();
 
 			$modificacion = "UPDATE ". $table. " SET ". $objeto->getModValues()." WHERE id = '".$objeto->id."';";
-			if (!$conexion->query($modificacion)) {
+			if (!$cone->conexion->query($modificacion)) {
 				echo "Error en la modificación.";	
 			}
-			desconectar();
+			$cone->desconectar();
 		}
 		
 		static function eliminar($objeto, $table) {
-			conectar();
+			$cone = new Conexion();
+			$cone->conectar();
 			
 			$eliminacion = "DELETE FROM $table WHERE id = ".$objeto->id.";";
-			if (!$conexion->query($eliminacion)) {
+			if (!$cone->conexion->query($eliminacion)) {
 				echo "Error en la eliminación.";	
 			}
 			
-			desconectar();
+			$cone->desconectar();
 		}
 		
 		static function mostrar($objeto, $table) {
-			conectar();
+			$cone = new Conexion();
+			$cone->conectar();
 			$consulta = "SELECT * FROM $table WHERE nombre = ".$objeto->nombre. ";";
-			if (!$query = $conexion->query($eliminacion)) {
+			if (!$query = $cone->conexion->query($eliminacion)) {
 				echo "Error en la eliminación.";	
 			} else {
 				while ($linea = $query->fetch_row()) {
@@ -64,7 +51,7 @@
 					echo "<br>";
 				}
 			}
-			desconectar();
+			$cone->desconectar();
 		}
 	}
 ?>
