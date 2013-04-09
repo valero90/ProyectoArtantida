@@ -14,6 +14,14 @@
 		var $titulo;
 		var $contenido;
 		var $autor;	
+		
+		public function getValues() {
+			return "$nivel, $idioma, $titulo, $contenido, $autor";	
+		}
+		
+		public function getModValues() {
+			return "nivel = '$nivel', idioma = '$idioma', titulo = '$titulo', contenido = '$contenido', autor = '$autor'";	
+		}
 	}
 	
 	Class Ejercicio extends Actividad {	
